@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwbuji7btix4m"]
+[gd_scene load_steps=3 format=3 uid="uid://dwbuji7btix4m"]
 
 [ext_resource type="Script" path="res://modules/core/boot.gd" id="1_aqlwf"]
-[ext_resource type="Texture2D" uid="uid://dfdiu3x5vm4vi" path="res://modules/core/alerts/resources/tmpBg.jpg" id="1_t621l"]
 [ext_resource type="Script" path="res://modules/core/bg.gd" id="3_6wg6q"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1tvh"]
-texture = ExtResource("1_t621l")
-modulate_color = Color(1, 1, 1, 0.87451)
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -19,7 +14,6 @@ script = ExtResource("1_aqlwf")
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_w1tvh")
 script = ExtResource("3_6wg6q")
 
 [node name="progressBar" type="ProgressBar" parent="bg"]
