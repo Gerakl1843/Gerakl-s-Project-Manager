@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://co3dcyb4d3maw"]
+
+[ext_resource type="Script" path="res://modules/core/textEditor/scripts/textEditTab.gd" id="1_218xd"]
+[ext_resource type="Script" path="res://modules/core/textEditor/scripts/fancyEditor.gd" id="2_6ky5i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi2gx"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0ugk"]
+
+[node name="TextEditTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 752.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_218xd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vi2gx")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 560.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/caret_color = Color(0, 0, 0, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y0ugk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y0ugk")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_y0ugk")
+minimap_draw = true
+draw_tabs = true
+draw_spaces = true
+script = ExtResource("2_6ky5i")

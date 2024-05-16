@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0rt7jj7oolv3"]
+
+[ext_resource type="PackedScene" uid="uid://bjvfhrqa5cjip" path="res://modules/core/network/prefabs/connect_window_cont.tscn" id="1_hxdty"]
+
+[node name="ConnectWindow" type="Window"]
+size = Vector2i(400, 320)
+
+[node name="ConnectWindowCont" parent="." instance=ExtResource("1_hxdty")]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://oqmm7gj02fhc"]
+
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/newTabButton.gd" id="1_atjfo"]
+
+[node name="NewTabButton" type="Control"]
+layout_mode = 3
+anchor_right = 0.1
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_atjfo")
+
+[node name="new" type="Button" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 0
+
+[connection signal="pressed" from="new" to="." method="_on_new_pressed"]

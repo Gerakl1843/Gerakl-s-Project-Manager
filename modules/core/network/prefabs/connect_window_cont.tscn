@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjvfhrqa5cjip"]
+
+[ext_resource type="Script" path="res://modules/core/network/scripts/connect_window_cont.gd" id="1_d3kck"]
+
+[node name="ConnectWindowCont" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d3kck")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 320.0
+
+[node name="IP" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 352.0
+offset_bottom = 127.0
+
+[node name="Port" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 200.0
+offset_right = 352.0
+offset_bottom = 231.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 104.0
+offset_bottom = 191.0
+text = "Port"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 104.0
+offset_bottom = 87.0
+text = "IP"
+
+[node name="Connect" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 280.0
+offset_right = 296.0
+offset_bottom = 312.0
+text = "Connect"
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 280.0
+offset_right = 192.0
+offset_bottom = 312.0
+text = "Cancel"
+
+[connection signal="pressed" from="Connect" to="." method="connectToHost"]
+[connection signal="pressed" from="Cancel" to="." method="cancel"]

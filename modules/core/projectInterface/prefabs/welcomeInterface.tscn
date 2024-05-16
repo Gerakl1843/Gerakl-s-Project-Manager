@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckf6lmoqsyyo8"]
+
+[ext_resource type="PackedScene" uid="uid://dj5oq3v871tqe" path="res://modules/core/projectInterface/prefabs/welcomeWindowCont.tscn" id="1_f6ydt"]
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/welcomeInterface.gd" id="1_nl07e"]
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/welcomeWindow.gd" id="2_2ktqk"]
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/topMenu.gd" id="3_uvmtv"]
+[ext_resource type="Texture2D" uid="uid://cq5x2dikfjumh" path="res://modules/core/projectInterface/resources/plus.svg" id="4_1cpqn"]
+[ext_resource type="Texture2D" uid="uid://dq2ab0kgm7ahu" path="res://modules/core/projectInterface/resources/full.svg" id="5_2nwl5"]
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/bottomMenu.gd" id="5_mxisw"]
+[ext_resource type="PackedScene" uid="uid://oqmm7gj02fhc" path="res://modules/core/projectInterface/prefabs/newTabButton.tscn" id="6_vnqvv"]
+[ext_resource type="Texture2D" uid="uid://5tg32gowl4jp" path="res://modules/core/projectInterface/resources/min.svg" id="6_wqdc7"]
+[ext_resource type="PackedScene" uid="uid://dfxglynyff6v5" path="res://modules/core/projectInterface/prefabs/new_tab_menu.tscn" id="7_ht3vs"]
+[ext_resource type="PackedScene" uid="uid://w44ec2dihbpl" path="res://modules/core/network/prefabs/netwSettWindow.tscn" id="11_k7p3l"]
+[ext_resource type="PackedScene" uid="uid://d0rt7jj7oolv3" path="res://modules/core/network/prefabs/connect_window.tscn" id="12_6u85l"]
+
+[node name="projectInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 752.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nl07e")
+
+[node name="welcomeWindow" type="Window" parent="."]
+position = Vector2i(290, 88)
+size = Vector2i(500, 300)
+unresizable = true
+always_on_top = true
+popup_window = true
+script = ExtResource("2_2ktqk")
+
+[node name="WelcomeWindowCont" parent="welcomeWindow" instance=ExtResource("1_f6ydt")]
+
+[node name="mainBg" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 688.0
+
+[node name="topBar" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 32.0
+
+[node name="appName" type="Label" parent="topBar"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 32.0
+
+[node name="close" type="Button" parent="topBar"]
+layout_mode = 0
+offset_left = 1120.0
+offset_right = 1152.0
+offset_bottom = 32.0
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="topBar/close"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -6.665
+offset_right = 48.0
+offset_bottom = 25.335
+rotation = 0.785398
+texture = ExtResource("4_1cpqn")
+expand_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="fullscreen" type="Button" parent="topBar"]
+layout_mode = 0
+offset_left = 1088.0
+offset_right = 1120.0
+offset_bottom = 32.0
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="topBar/fullscreen"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("5_2nwl5")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="minimize" type="Button" parent="topBar"]
+layout_mode = 0
+offset_left = 1056.0
+offset_right = 1088.0
+offset_bottom = 32.0
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="topBar/minimize"]
+layout_mode = 0
+offset_top = 13.0
+offset_right = 32.0
+offset_bottom = 45.0
+texture = ExtResource("6_wqdc7")
+expand_mode = 5
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="topMenu" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 1152.0
+offset_bottom = 64.0
+script = ExtResource("3_uvmtv")
+sections = {
+"Edit": {},
+"File": {
+"Project Options": "get_node(\"../../welcomeWindow\").show()",
+"Quit": "get_tree().quit()"
+},
+"Help": {},
+"View": {}
+}
+
+[node name="bottomMenu" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_top = 648.0
+offset_right = 1152.0
+offset_bottom = 688.0
+script = ExtResource("5_mxisw")
+
+[node name="NewTabButton" parent="bottomMenu" instance=ExtResource("6_vnqvv")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="newTabMenu" parent="." instance=ExtResource("7_ht3vs")]
+position = Vector2i(150, 150)
+visible = false
+
+[node name="NetwSettWindow" parent="." instance=ExtResource("11_k7p3l")]
+position = Vector2i(150, 150)
+
+[node name="ConnectWindow" parent="." instance=ExtResource("12_6u85l")]
+position = Vector2i(150, 150)
+visible = false
+
+[connection signal="close_requested" from="welcomeWindow" to="welcomeWindow" method="close"]
+[connection signal="mouse_entered" from="topBar" to="." method="can_drag"]
+[connection signal="mouse_exited" from="topBar" to="." method="cant_drag"]
+[connection signal="pressed" from="topBar/close" to="." method="close"]
+[connection signal="pressed" from="topBar/fullscreen" to="." method="fullscreen"]
+[connection signal="pressed" from="topBar/minimize" to="." method="minimize"]
+[connection signal="newTab" from="bottomMenu/NewTabButton" to="." method="newTab"]

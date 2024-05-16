@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dtb7bdloxee17"]
+
+[node name="Message" type="AcceptDialog"]
+visible = true

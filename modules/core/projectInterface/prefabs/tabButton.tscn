@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy4q3m50exn7a"]
+
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/tabButton.gd" id="1_pgmuv"]
+
+[node name="TabButton" type="Control"]
+layout_mode = 3
+anchor_right = 0.32
+anchor_bottom = 0.2
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pgmuv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="buttonTrigger" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Button2" to="." method="clsd"]
+[connection signal="mouse_entered" from="buttonTrigger" to="." method="selected"]
+[connection signal="mouse_exited" from="buttonTrigger" to="." method="deselected"]

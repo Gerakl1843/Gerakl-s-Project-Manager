@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://co3dcyb4d3maw"]
+
+[ext_resource type="Script" path="res://modules/core/textEditor/scripts/textEditTab.gd" id="1_ar7x6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi2gx"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0ugk"]
+
+[node name="TextEditTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 752.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ar7x6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 614.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vi2gx")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 608.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y0ugk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y0ugk")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_y0ugk")
+caret_blink = true
+draw_tabs = true
+draw_spaces = true

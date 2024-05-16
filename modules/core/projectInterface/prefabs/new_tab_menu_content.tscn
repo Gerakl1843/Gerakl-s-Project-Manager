@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://7322onhg4plv"]
+
+[ext_resource type="Script" path="res://modules/core/projectInterface/scripts/new_tab_menu_content.gd" id="1_7xepm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmpps"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="newTabMenuContent" type="Control"]
+layout_mode = 3
+anchor_right = 1.25
+anchor_bottom = 1.52
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xepm")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 304.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmpps")
+
+[node name="types" type="Tree" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 482.0
+offset_bottom = 264.0
+
+[node name="cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 272.0
+offset_right = 248.0
+offset_bottom = 296.0
+text = "Cancel"
+
+[node name="create" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 272.0
+offset_right = 496.0
+offset_bottom = 296.0
+text = "Create"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 488.0
+offset_bottom = 40.0
+text = "Choose tab type:"
+
+[connection signal="item_mouse_selected" from="types" to="." method="selected"]
+[connection signal="pressed" from="cancel" to="." method="close"]
+[connection signal="pressed" from="create" to="." method="create"]

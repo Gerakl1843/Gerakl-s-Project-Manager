@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://xv5fsjksd1pp"]
+
+[ext_resource type="Script" path="res://modules/core/network/scripts/networkOptions.gd" id="1_r72av"]
+
+[node name="NetworkInterface" type="Control"]
+layout_mode = 3
+anchor_right = 0.96
+anchor_bottom = 2.24
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r72av")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 448.0
+
+[node name="main" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 416.0
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 416.0
+offset_right = 296.0
+offset_bottom = 448.0
+text = "Cancel"
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 416.0
+offset_right = 384.0
+offset_bottom = 448.0
+text = "Save"
+
+[connection signal="pressed" from="Cancel" to="." method="cancel"]
+[connection signal="pressed" from="Save" to="." method="save"]
